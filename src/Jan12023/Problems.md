@@ -1,6 +1,6 @@
-#January 7, 2023 Problems
+# January 7, 2023 Problems
 
-##1. Max Consecutive Ones
+## 1. Max Consecutive Ones
 
 ---
 **Prompt:** Given a binary array nums, return the maximum number of consecutive 1's in the array.
@@ -14,7 +14,7 @@
 Output: 3
 Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.`
 
-##2. Find Numbers with Even Number of Digits
+## 2. Find Numbers with Even Number of Digits
 
 ---
 **Prompt:** Given an array nums of integers, return how many of them contain an even number of digits.
@@ -34,7 +34,7 @@ Explanation:
 7896 contains 4 digits (even number of digits).
 Therefore only 12 and 7896 contain an even number of digits.`
 
-##3. Squares of a Sorted Array
+## 3. Squares of a Sorted Array
 
 ---
 **Prompt:** Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
