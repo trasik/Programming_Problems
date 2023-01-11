@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Driver {
     public static void main(String[] args) {
+        //Problem 1
         String s1 = "egg";
         String t1 = "add";
 
@@ -17,8 +18,19 @@ public class Driver {
         System.out.println(isIsomorphic(s1, t1));
         System.out.println(isIsomorphic(s2, t2));
         System.out.println(isIsomorphic(s3, t3));
+
+        //Problem 2
+        String s1b = "abc";
+        String t1b = "ahbgdc";
+
+        String s2b = "axc";
+        String t2b = "ahbgdc";
+
+        System.out.println(isSubsequence(s1b, t1b));
+        System.out.println(isSubsequence(s2b, t2b));
     }
 
+    //Problem 1
     public static boolean isIsomorphic(String s, String t) {
         if(s.length() != t.length()) return false;
 
@@ -35,5 +47,18 @@ public class Driver {
         return true;
     }
 
+    public static boolean isSubsequence(String s, String t) {
+        if(s.length() > t.length()) return false;
+
+        int p1 = 0;
+        int p2 = 0;
+
+        while(p1 < s.length() && p2 < t.length()) {
+            if(s.charAt(p1) == t.charAt(p2)) p1++;
+            p2++;
+        }
+
+        return p1 == s.length();
+    }
 
 }
