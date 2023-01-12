@@ -17,3 +17,16 @@ Return the head of the merged linked list.
 **Example:**
 `Input: list1 = [1,2,4], list2 = [1,3,4]
 Output: [1,1,2,3,4,4]`
+
+## 2. Reverse Linked List
+
+---
+**Prompt:** Given the head of a singly linked list, reverse the list, and return the reversed list.
+
+**Constraints:**
+- The number of nodes in the list is the range [0, 5000]. 
+- -5000 <= Node.val <= 5000
+
+**Example:**
+`Input: head = [1,2,3,4,5]
+Output: [5,4,3,2,1]`

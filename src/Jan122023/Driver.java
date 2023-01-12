@@ -15,7 +15,13 @@ public class Driver {
         printList(mergeTwoLists(firstList1, secondList1));
 
         //Problem 2
-        
+        ListNode list1 = new ListNode(1);
+        list1.next = new ListNode(2);
+        list1.next.next = new ListNode(3);
+        list1.next.next.next = new ListNode(4);
+        list1.next.next.next.next = new ListNode(5);
+
+        printList(reverseList(list1));
     }
 
     //Problem 1
@@ -30,6 +36,23 @@ public class Driver {
             list2.next = mergeTwoLists(list1, list2.next);
             return list2;
         }
+    }
+
+    //Problem 2
+    public static ListNode reverseList(ListNode head) {
+        if(head == null) return null;
+
+        ListNode current = head;
+        ListNode prev = null;
+
+        while(current != null) {
+            ListNode temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+        }
+
+        return prev;
     }
 
     public static void printList(ListNode node) {
