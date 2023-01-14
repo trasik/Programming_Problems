@@ -1,5 +1,8 @@
 package Jan142023;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Driver {
 
     public static void main(String[] args) {
@@ -14,7 +17,6 @@ public class Driver {
         System.out.println(detectCycle(list1).val);
 
         //Problem 2
-
         int[] firstSet = {7,1,5,3,6,4};
         int[] secondSet = {7,6,4,3,1};
         int[] emptySet = {};
@@ -24,6 +26,13 @@ public class Driver {
         System.out.println(maxProfit(secondSet));
         System.out.println(maxProfit(emptySet));
         System.out.println(maxProfit(nullSet));
+
+        //Problem 3
+        String firstString = "abccccdd";
+        String secondString = "a";
+
+        System.out.println(longestPalindrome(firstString));
+        System.out.println(longestPalindrome(secondString));
     }
 
     //Problem 1
@@ -53,6 +62,7 @@ public class Driver {
         return null;
     }
 
+    //Problem 2
     public static int maxProfit(int[] prices) {
         if(prices == null || prices.length == 0) return -1;
 
@@ -67,6 +77,26 @@ public class Driver {
         return profit;
     }
 
+    //Problem 3
+    public static int longestPalindrome(String s) {
+        if(s == null || s.length() == 0) return -1;
+
+        Map<Character, Integer> map = new HashMap<>();
+        int oddLettersFreq = 0;
+
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        for(Map.Entry<Character, Integer> entry : map.entrySet()) {
+            if(entry.getValue() % 2 != 0) oddLettersFreq++;
+        }
+
+        return (oddLettersFreq == 0) ? s.length() : s.length() - oddLettersFreq + 1;
+    }
+
+    //Helper Functions
     public static void printList(ListNode node) {
         ListNode current = node;
 
