@@ -9,6 +9,9 @@ public class Driver {
 
         System.out.println("Index: " + search(firstSet, 9));
         System.out.println("Index: " + search(secondSet, 2));
+
+        //Problem 2: First Bad Version
+        //No testing for function as API call isBadVersion is missing
     }
 
     private static int search(int[] nums, int target) {
@@ -26,4 +29,18 @@ public class Driver {
 
         return -1;
     }
+
+    /*Problem 2
+    public static int firstBadVersion(int n) {
+        int start = 1;
+        int end = n;
+
+        while(start < end) {
+            int mid = start + (end - start) / 2;
+            if(!isBadVersion(mid)) start = mid + 1;
+            else end = mid;
+        }
+
+        return start;
+    }*/
 }
