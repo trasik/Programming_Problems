@@ -8,6 +8,12 @@ public class Driver {
         System.out.println(fib(9));
         System.out.println(fibMemo(4));
         System.out.println(fibMemo(9));
+
+        //Problem 2: Climbing Stairs
+        System.out.println(climbStairs(2));
+        System.out.println(climbStairs(3));
+        System.out.println(climbStairs(4));
+        System.out.println(climbStairs(45));
     }
 
     //Problem 1: Fibonacci (No Memo)
@@ -24,6 +30,17 @@ public class Driver {
         if(n <= 1) return n;
         memo[n] = fibMemo(n - 1) + fibMemo(n - 2);
         return memo[n];
+    }
+
+    //Problem 2: Climbing Stairs
+    static int[] cache = new int[46];
+
+    public static int climbStairs(int n) {
+        if(cache[n] != 0) return cache[n];
+        if(n <= 3) return n;
+
+        cache[n] = climbStairs(n - 1) + climbStairs(n - 2);
+        return cache[n];
     }
 
 }
