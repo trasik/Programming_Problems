@@ -1,5 +1,7 @@
 package Jan292023;
 
+import java.util.Stack;
+
 public class Driver {
 
     public static void main(String[] args) {
@@ -11,6 +13,14 @@ public class Driver {
         root1.next.next.next.next = new ListNode(5);
 
         printLinkedList(removeNthFromEnd(root1, 2));
+        System.out.println();
+        //Problem 2: Palindrome Linked List
+        ListNode list1 = new ListNode(1);
+        list1.next = new ListNode(2);
+        list1.next.next = new ListNode(2);
+        list1.next.next.next = new ListNode(1);
+        System.out.println("Is Palindrome?: " + isPalindrome(list1));
+
     }
 
     //Problem 1: Remove Nth Node from End of List
@@ -37,6 +47,29 @@ public class Driver {
 
         slow.next = slow.next.next;
         return head;
+    }
+
+    //Problem 2: Palindrome Linked List
+    public static boolean isPalindrome(ListNode head) {
+        Stack<ListNode> stack = new Stack<>();
+        ListNode current = head;
+
+        //Push every node onto the stack
+        while(current != null) {
+            stack.push(current);
+            current = current.next;
+        }
+
+        //Reset the pointer and pop the last nodes in the list;
+        //If the values aren't equal then return false as a palindrome doesn't exist
+        current = head;
+        while(current != null) {
+            ListNode check = stack.pop();
+            if(current.val != check.val) return false;
+            current = current.next;
+        }
+
+        return true;
     }
 
     //Helper
