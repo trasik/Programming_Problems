@@ -13,13 +13,22 @@ public class Driver {
         root1.next.next.next.next = new ListNode(5);
 
         printLinkedList(removeNthFromEnd(root1, 2));
-        System.out.println();
+
         //Problem 2: Palindrome Linked List
         ListNode list1 = new ListNode(1);
         list1.next = new ListNode(2);
         list1.next.next = new ListNode(2);
         list1.next.next.next = new ListNode(1);
         System.out.println("Is Palindrome?: " + isPalindrome(list1));
+
+        //Problem 3: Odd Even Linked List
+        ListNode oddEven = new ListNode(1);
+        oddEven.next = new ListNode(2);
+        oddEven.next.next = new ListNode(3);
+        oddEven.next.next.next = new ListNode(4);
+        oddEven.next.next.next.next = new ListNode(5);
+
+        printLinkedList(oddEvenList(oddEven));
 
     }
 
@@ -70,6 +79,25 @@ public class Driver {
         }
 
         return true;
+    }
+
+    //Problem 3: Odd Even Linked List
+    public static ListNode oddEvenList(ListNode head) {
+        if(head == null) return null;
+
+        ListNode odd = head;
+        ListNode even = head.next;
+        ListNode evenHead = even;
+
+        while(even != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
+        }
+
+        odd.next = evenHead;
+        return head;
     }
 
     //Helper
