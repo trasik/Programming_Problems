@@ -1,7 +1,5 @@
 package Feb42023;
 
-import com.sun.source.tree.Tree;
-
 import java.util.*;
 
 public class Driver {
@@ -20,6 +18,12 @@ public class Driver {
 
         System.out.println("Is Given Tree Symmetric?: " + isSymmetric(tree2));
 
+        //Problem 3: Maximum Depth of Binary Tree
+        TreeNode tree3 = new TreeNode(3);
+        tree3.setLeft(new TreeNode(9));
+        tree3.setRight(new TreeNode(20, new TreeNode(15), new TreeNode(7)));
+
+        System.out.println("Max Depth of Tree: " + maxDepth(tree3));
     }
 
     //Problem 1: Binary Tree Inorder Traversal
@@ -51,4 +55,12 @@ public class Driver {
 
         return isSymmetricHelper(left.getLeft(), right.getRight()) && isSymmetricHelper(left.getRight(), right.getLeft());
     }
+
+    //Problem 3: Maximum Depth of Binary Tree
+    public static int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+
+        return 1 + Math.max(maxDepth(root.getLeft()), maxDepth(root.getRight()));
+    }
+
 }
